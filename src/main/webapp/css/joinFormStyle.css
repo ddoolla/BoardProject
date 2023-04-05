@@ -1,0 +1,69 @@
+@charset "UTF-8";
+/* 회원가입 페이지 스타일 */
+/*
+ * 섹션 영역
+ */
+#join-section {
+    width: 500px;
+    height: 500px;
+    margin: 100px auto;
+    margin-bottom: 200px;
+    border: 2px solid #666;
+    border-radius: 50px;
+}
+
+#join-section h1 {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    font-size: 2.2em;
+}
+
+#join-section #join-container {
+    width: 350px;
+    height: 300px;
+    margin: 0 auto;
+    padding-top: 15px;
+}
+
+#join-section #join-container div {
+    margin-bottom: 10px;
+}
+
+.cls1 {
+    display: inline-block;
+    width: 125px;
+    font-size: 1.2em;
+}
+
+#join-section #join-container input {
+    width: 205px;
+    height: 25px;
+    vertical-align: middle;
+    margin-bottom: 5px;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding-left: 5px;
+    font-size: 1.1em;
+}
+
+/* 가입 버튼 */
+#join-section .btn {
+    width: 350px;
+    margin: 0 auto;
+    margin-top: 20px;
+    text-align: center;
+    
+}
+
+#join-section .btn input {
+    width: 100px;
+    height: 30px;
+    font-size: 1.1em;
+    border: 0;
+    border-radius: 5px;
+}
+
+#join-section .btn input:hover {
+    border: 1px solid #999;
+}

@@ -32,7 +32,8 @@
 						<div>
 							<input type="checkbox" name="chkId" id="chk1"> <label
 								for="chk1">아이디 기억하기</label>
-							&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <a href="#">회원가입</a>
+							&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
+							<a href="/BoardProject/view/joinForm.jsp">회원가입</a>
 						</div>
 						<div>
 							<input type="submit" value="로그인">

@@ -8,14 +8,14 @@
             </div>
             
             <div id="top-title">
-                <a href="/BoardProject/index.jsp"><h1>ABCDEFG</h1></a>
+                <h1>ABCDEFG</h1>
             </div>
             
            
             <div id="join">
                 <a href="/BoardProject/view/loginForm.jsp">로그인</a> 
                 &nbsp;|&nbsp;
-                <a href="#">회원가입</a>        
+                <a href="/BoardProject/view/joinForm.jsp">회원가입</a>        
             </div>
 
         </header>
@@ -23,9 +23,9 @@
         <nav id="main-navigation"> <!-- 네비게이션바 -->
             <div>
                 <ul>
-                    <li><a href="#">home</a></li>
+                    <li><a href="/BoardProject/index.jsp">home</a></li>
                     <li>&nbsp;|&nbsp;</li>
-                    <li><a href="#">게시글</a></li>
+                    <li><a href="/BoardProject/view/list.jsp">게시글</a></li>
                     <li>&nbsp;|&nbsp;</li>
                     <li><a href="#">갤러리</a></li>
                     <li>&nbsp;|&nbsp;</li>
