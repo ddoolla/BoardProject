@@ -1,0 +1,125 @@
+@charset "UTF-8";
+/*
+ * 전체 스타일 설정 
+ */
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+#line {
+    border-bottom: 1px solid #666;
+}
+/* 
+ * 페이지 전체 설정 
+ */
+#page-wrapper {
+    width: 1200px;
+    margin: 0 auto;
+    
+}
+
+
+/*
+ * 전체 컨텐츠 영역
+ */
+#content h2 {
+    padding-top: 50px;
+    text-align: center;
+    font-family: "Elephant";
+    font-size: 2em;
+}
+
+/*
+ * 메인 섹션 영역
+ */
+#main-section #bigPic {
+    width:  800px;
+    height: 500px;
+    margin: 20px auto;
+    
+}
+
+#main-section #smallPic {
+    display: flex;
+    justify-content: space-between;
+    width: 800px;
+    margin: 70px auto;
+}
+
+#main-section #smallPic table tr th {
+    font-family: "Elephant";
+    font-size: 1.5em;
+}
+
+#main-section #smallPic table tr:nth-child(3) td {
+    font-size: 0.8em;
+    background-color: whitesmoke;
+    padding-top: 3px;
+    padding-left: 5px;
+    
+}
+
+#main-section #smallPic table tr td span {
+    float: right;
+    font-size: 1.7em;
+    padding-right: 5px;
+    padding-bottom: 3px;
+}
+
+/*
+ * 서브 섹션 영역
+ */
+#sub-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 800px;
+    margin: 70px auto;
+}
+
+#sub-section #subPic {
+    width: 250px;
+    height: 250px;
+}
+
+#sub-section #board table {
+    width: 500px;
+    height: 200px;
+}
+
+#sub-section #board table tr td {
+    border-bottom: 1px dotted #999;
+}
+
+#sub-section #board table td:nth-child(2n) {
+    width: 10px;
+    color: #999;
+}
+
+#sub-section #board table td:first-child {
+    width: 100px;
+}
+
+#sub-section #board table td:last-child {
+    width: 80px;
+    font-size: 0.8em;
+}
+
+#sub-section #board span {
+    float:right;
+    font-size: 0.9em;
+    padding-top: 2px;
+}
+
+#sub-section #board span a:hover {
+    color: #999;
+}
+
+#sub-section #board table td a:hover {
+    color: #999;
+}

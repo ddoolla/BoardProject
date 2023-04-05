@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+/*
+ * 로그인 페이지 section 영역 스타일
+ */
+/*
+ * section 
+ */
+#loginSection {
+    margin: 100px 0;   
+    margin-bottom: 200px;
+
+}
+
+#loginSection #loginContainer {
+    width: 500px;
+    height: 400px;
+    margin: 0 auto;
+    border: 2px solid #666;
+    border-radius: 50px;
+}
+
+#loginSection #loginContainer h1 {
+    font-size: 2.2em;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 15px;
+}
+
+#loginSection #loginContainer #loginBox {
+    width: 250px;
+    margin: 30px auto;
+}
+
+/* 아이디 입력박스 */
+
+#loginSection #loginContainer #loginBox div:nth-child(1) {
+    font-size: 3ex;
+    height: 35px;
+    margin-bottom: 5px;
+}
+
+#loginSection #loginContainer #loginBox div:nth-child(1) input {
+    width: 200px;
+    height: 25px;
+    vertical-align: middle;
+    margin-bottom: 3px;
+}
+
+#loginSection #loginContainer #loginBox div:nth-child(1) span {
+    display: inline-block;
+    width: 33px;
+}  
+
+/* 비밀번호 입력박스 */
+
+#loginSection #loginContainer #loginBox div:nth-child(2) {
+    font-size: 2.6ex;
+    height: 35px;
+}
+
+#loginSection #loginContainer #loginBox div:nth-child(2) input {
+    width: 200px;
+    height: 25px;
+    vertical-align: middle;
+    margin-bottom: 3px;
+}
+    
+#loginSection #loginContainer #loginBox div:nth-child(2) span {
+    display: inline-block;
+    width: 33px;
+}  
+
+/* 아이디 기억하기 체크 */
+#loginSection #loginContainer #loginBox div:nth-child(3) {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+#loginSection #loginContainer #loginBox div:nth-child(3) label:hover {
+    color: #999;
+}
+
+#loginSection #loginContainer #loginBox div:nth-child(3) a:hover {
+    color: #999;
+}
+
+/* 로그인 버튼 */
+
+#loginSection #loginContainer #loginBox div:nth-child(4) input {
+    width: 250px;
+    height: 50px;
+    font-size: 1.5em;
+}

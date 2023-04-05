@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+/* header, footer css 설정  */
+
+/*
+ * 전체 스타일 설정 
+ */
+ * {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+#line {
+    border-bottom: 1px solid #666;
+}
+/* 
+ * 페이지 전체 설정 
+ */
+#page-wrapper {
+    width: 1200px;
+    margin: 0 auto;
+    
+}
+
+/*
+ * 헤더 영역 
+ */
+#main-header {
+    position: relative;
+    height: 200px;
+}
+#main-header #main-logo {
+    display: block;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    top: 30px;
+}
+
+#main-header #top-title {
+    display: inline;
+    text-align: center;
+    font-size: 2em;
+    font-family: "Elephant";
+}
+
+#main-header #join {
+    position: absolute;
+    right: 0;
+    top: 30px;
+}
+#main-header #join a:hover {
+    color: #999;
+}
+/*
+ * 네비게이션 영역 
+ */
+#main-navigation {
+    height: 50px;;
+    line-height: 50px;
+    margin-bottom: 10px;
+    background-color:  white;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    border-bottom: 1px solid #666;
+}
+
+#main-navigation ul {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bolder;
+}
+
+#main-navigation ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+#main-navigation ul li a:hover {
+    color: #999;
+}
+
+/*
+ * 푸터 영역
+ */
+ #main-footer {
+    width: 1200px;
+    height: 130px;;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #666;
+}
