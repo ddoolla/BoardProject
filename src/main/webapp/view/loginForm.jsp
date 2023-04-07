@@ -7,13 +7,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>loginForm</title>
-<link rel="stylesheet" href="../css/commonStyle.css">
-<link rel="stylesheet" href="../css/loginStyle.css">
+<link rel="stylesheet" href="/css/commonStyle.css">
+<link rel="stylesheet" href="/css/loginStyle.css">
 </head>
 <body>
 	<div id="page-wrapper">
 
-		<jsp:include page="../common/header.jsp" />
+		<jsp:include page="/common/header.jsp" />
 
 		<section id="loginSection">
 			<form action="" method="post">
@@ -33,7 +33,7 @@
 							<input type="checkbox" name="chkId" id="chk1"> <label
 								for="chk1">아이디 기억하기</label>
 							&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
-							<a href="/BoardProject/view/joinForm.jsp">회원가입</a>
+							<a href="/view/joinForm.jsp">회원가입</a>
 						</div>
 						<div>
 							<input type="submit" value="로그인">
@@ -43,7 +43,7 @@
 			</form>
 		</section>
 
-		<jsp:include page="../common/footer.jsp" />
+		<jsp:include page="/common/footer.jsp" />
 
 	</div>
 </body>

@@ -65,5 +65,6 @@
 }
 
 #join-section .btn input:hover {
-    border: 1px solid #999;
+    border: 2px solid #999;
+    color: #999;
 }

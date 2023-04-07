@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+      
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,14 +9,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>index</title>
-    <link rel="stylesheet" href="./css/mainStyle.css">
-    <link rel="stylesheet" href="./css/commonStyle.css">
-    
+    <link rel="stylesheet" href="/css/mainStyle.css">
+    <link rel="stylesheet" href="/css/commonStyle.css">
 </head>
 <body>
     <div id="page-wrapper"> <!-- 페이지 전체 감싸는 태그 -->
         
-        <jsp:include page="./common/header.jsp"/>
+        <jsp:include page="/common/header.jsp"/>
+        
         
         <div id="content"> <!-- 컨텐츠 전체 -->
 
@@ -75,7 +77,7 @@
                         </tr>
                     </table>
                 </div>
-            </dsection>
+            </section>
 
             <section id="sub-section">
                 <div id="subPic">
@@ -83,48 +85,33 @@
                 </div>
                 <div id="board"> <!-- 하단 게시판 -->
                     <table>
-                        <tr>
-                            <td>userId</td>
-                            <td> | </td>
-                            <td><a href="#">title</a></td>
-                            <td> | </td>
-                            <td>yyyy-MM-dd</td>
-                        </tr>
-                        <tr>
-                            <td>userId</td>
-                            <td> | </td>
-                            <td><a href="#">title</a></td>
-                            <td> | </td>
-                            <td>yyyy-MM-dd</td>
-                        </tr>
-                        <tr>
-                            <td>userId</td>
-                            <td> | </td>
-                            <td><a href="#">title</a></td>
-                            <td> | </td>
-                            <td>yyyy-MM-dd</td>
-                        </tr>
-                        <tr>
-                            <td>userId</td>
-                            <td> | </td>
-                            <td><a href="#">title</a></td>
-                            <td> | </td>
-                            <td>yyyy-MM-dd</td>
-                        </tr>
-                        <tr>
-                            <td>userId</td>
-                            <td> | </td>
-                            <td><a href="#">title</a></td>
-                            <td> | </td>
-                            <td>yyyy-MM-dd</td>
-                        </tr>
+                        <c:choose>
+                        	<c:when test="${ empty sessionScope.mainLists }">
+                        		<tr><td colspan="5">게시물이 없습니다.</td></tr>
+                        	</c:when>
+                        	<c:otherwise>
+                        		<c:forEach var="mainLists" items="${ sessionScope.mainLists }">
+                        			<tr>
+                        				<td>${ mainLists.userId }</td>
+                    			        <td> | </td>
+                       			 	    <td><a href="#">${ mainLists.title }</a></td>
+                       				    <td> | </td>
+                        			    <td>${ mainLists.writeDate }</td>
+                        			</tr>
+                        		</c:forEach>
+                        	</c:otherwise>
+                        </c:choose>
+                        
+                       	
                     </table>
-                    <span><a href="#">더보기</a></span>
+                    <span><a href="/view/list.do">더보기</a></span>
                 </div>
             </section>
         </div>
 
-        <jsp:include page="./common/footer.jsp"/>
+  		<jsp:include page="/common/footer.jsp"/>
+  		
+      
     </div>
 </body>
 </html>
