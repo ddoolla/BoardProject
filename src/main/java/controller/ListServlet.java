@@ -1,7 +1,9 @@
 package controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -27,16 +29,29 @@ public class ListServlet extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		ServletContext application = this.getServletContext();
 		BoardDAO dao = new BoardDAO(application);
+		Map<String, Object> map = new HashMap<>();
+		//페이징 기능
+		int pageSize = 10;
 		
-		//페이징 기능 
+		
 		int pageNum = 1;
 		int allContents = dao.allContents();
+		String pageTemp = req.getParameter("pageNum"); //페이지 번호 클릭하면 쿼리스트링으로 요청하는 파라미터
+		if (pageTemp != null && !pageTemp.equals("")) {
+			pageNum = Integer.parseInt(pageTemp); 
+		}
+		
+		int start = (pageNum - 1) * pageSize + 1;
+		int end = pageNum * pageSize;
+		map.put("start", start);
+		map.put("end", end);
+		
 		String pagingStr = Paging.pagingStr(allContents, pageNum);
-		req.setAttribute("pagingStr", pagingStr);
+		req.setAttribute("pagingStr", pagingStr);	
 		
+		List<BoardDTO> lists = dao.selectList(map);
+		//dao.close();
 		
-		
-		List<BoardDTO> lists = dao.selectList();
 		req.setAttribute("lists", lists);
 		
 		req.getRequestDispatcher("/view/list.jsp").forward(req, resp);

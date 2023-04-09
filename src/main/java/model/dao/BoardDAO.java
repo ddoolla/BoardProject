@@ -2,6 +2,7 @@ package model.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 
@@ -17,7 +18,6 @@ public class BoardDAO extends JDBConnect {
 	public List<BoardDTO> selectHome() {
 		List<BoardDTO> list = new ArrayList<>();
 		String query = "SELECT ROWNUM, A.* "
-				+ " FROM ( "
 				+ " SELECT m.userId, b.title, TO_CHAR(b.writeDate, 'yyyy-MM-dd') writeDate "
 				+ " FROM member m, board b "
 				+ " WHERE m.uNum = b.uNum "
@@ -74,9 +74,9 @@ public class BoardDAO extends JDBConnect {
 	}//allContents()
 	
 	//list.jsp에 게시판 리스트 불러오는 메서드
-	public List<BoardDTO> selectList() {
+	public List<BoardDTO> selectList(Map<String, Object> map) {
 		List<BoardDTO> list = new ArrayList<>();
-		String query = "SELECT * "
+		String query = "SELECT * FROM ( "
 					+ "	FROM ( "
 						+ " SELECT ROWNUM AS list, A.* "
 						+ " FROM ( "
@@ -86,11 +86,13 @@ public class BoardDAO extends JDBConnect {
 							+ " ORDER BY cNum DESC "
 						+ " ) A "
 					+ " ) "
-					+ " WHERE list BETWEEN 1 AND 5 ";
+					+ " WHERE list BETWEEN ? AND ? ";
 		
 		try {  
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(query);
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, map.get("start").toString());
+			pstmt.setString(2, map.get("end").toString());
+			rs = pstmt.executeQuery();
 			
 			while (rs.next()) {
 				BoardDTO dto = new BoardDTO();
@@ -104,7 +106,6 @@ public class BoardDAO extends JDBConnect {
 				list.add(dto);
 			}//while
 			
-			close();
 		} catch (Exception e) {
 			System.out.println("selectList()중 예외 발생");
 			e.printStackTrace();
