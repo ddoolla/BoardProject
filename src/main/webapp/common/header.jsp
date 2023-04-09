@@ -4,7 +4,7 @@
     <header id="main-header"> <!-- 헤더 -->
             
             <div id="main-logo">
-                <a href="/view/index.jsp"><img src="https://via.placeholder.com/100" alt=""></a>
+                <a href="./home.do"><img src="https://via.placeholder.com/100" alt=""></a>
             </div>
             
             <div id="top-title">
@@ -13,9 +13,9 @@
             
            
             <div id="join">
-                <a href="/view/loginForm.jsp">로그인</a> 
+                <a href="./loginForm.jsp">로그인</a> 
                 &nbsp;|&nbsp;
-                <a href="/view/joinForm.jsp">회원가입</a>        
+                <a href="./joinForm.jsp">회원가입</a>        
             </div>
 
         </header>
@@ -23,9 +23,9 @@
         <nav id="main-navigation"> <!-- 네비게이션바 -->
             <div>
                 <ul>
-                    <li><a href="/view/index.jsp">home</a></li>
+                    <li><a href="./home.do">home</a></li>
                     <li>&nbsp;|&nbsp;</li>
-                    <li><a href="/view/list.do">게시글</a></li>
+                    <li><a href="./list.do">게시글</a></li>
                     <li>&nbsp;|&nbsp;</li>
                     <li><a href="#">갤러리</a></li>
                     <li>&nbsp;|&nbsp;</li>

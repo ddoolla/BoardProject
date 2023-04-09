@@ -7,13 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/css/commonStyle.css">
-    <link rel="stylesheet" href="/css/joinFormStyle.css">
+    <link rel="stylesheet" href="../css/commonStyle.css">
+    <link rel="stylesheet" href="../css/joinFormStyle.css">
 </head>
 <body>
     <div id="page-wrapper">
         
-        <jsp:include page="/common/header.jsp"/>
+        <jsp:include page="../common/header.jsp"/>
         
         <section id="join-section">
             <h1>회원가입</h1>
@@ -55,7 +55,7 @@
 
         </section>
 		
-		<jsp:include page="/common/footer.jsp"/>
+		<jsp:include page="../common/footer.jsp"/>
         
     </div>
 </body>

@@ -13,8 +13,8 @@ import javax.servlet.http.HttpSession;
 
 import model.dao.BoardDAO;
 import model.dto.BoardDTO;
-@WebServlet("/")
-public class MainServlet extends HttpServlet {
+@WebServlet("/view/home.do")
+public class HomeServlet extends HttpServlet {
 	
 	/**
 	 * 
@@ -24,17 +24,13 @@ public class MainServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8"); 
-		resp.setCharacterEncoding("UTF-8");
-		HttpSession session = req.getSession();
 		
 		ServletContext application = this.getServletContext();
 		BoardDAO dao = new BoardDAO(application);
 		
-		List<BoardDTO> lists = dao.selectMain();
-		//req.setAttribute("mainLists", lists);
-		session.setAttribute("mainLists", lists);
+		List<BoardDTO> lists = dao.selectHome();
+		req.setAttribute("mainLists", lists);
 		
-		//req.getRequestDispatcher("/view/index.jsp").forward(req, resp); 
-		resp.sendRedirect("/view/index.jsp");
+		req.getRequestDispatcher("/view/home.jsp").forward(req, resp); 
 	}
 }

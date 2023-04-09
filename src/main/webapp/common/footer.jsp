@@ -7,7 +7,7 @@
                 Tel: 010-2114-8723
             </p>
             <div>
-                <a href="/view/index.jsp"><img src="https://via.placeholder.com/75" alt=""></a>
+                <a href="./home.do"><img src="https://via.placeholder.com/75" alt=""></a>
             </div>
         </footer>
         

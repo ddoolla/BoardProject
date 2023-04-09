@@ -14,7 +14,7 @@ public class BoardDAO extends JDBConnect {
 		super(application);
 	}
 	//index.jps에있는 게시판에 상위 게시물 5개 가져오는 메서드
-	public List<BoardDTO> selectMain() {
+	public List<BoardDTO> selectHome() {
 		List<BoardDTO> list = new ArrayList<>();
 		String query = "SELECT ROWNUM, A.* "
 				+ " FROM ( "
@@ -49,13 +49,44 @@ public class BoardDAO extends JDBConnect {
 		
 	}//selectMain()
 	
+	//총 게시물 개수 구하는 메서드
+	public int allContents() {
+		String query = "SELECT COUNT(*) as allContent FROM board";
+		BoardDTO dto = new BoardDTO();
+		int num = 0;
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(query);
+			
+			rs.next();
+			
+			dto.setAllContents(rs.getString("allContent"));
+			num = Integer.parseInt(dto.getAllContents());
+			
+		} catch (Exception e) {
+			System.out.println("allContents() 예외");
+			e.printStackTrace();
+		}
+		close();
+		
+		return num;
+		
+	}//allContents()
+	
 	//list.jsp에 게시판 리스트 불러오는 메서드
 	public List<BoardDTO> selectList() {
 		List<BoardDTO> list = new ArrayList<>();
-		String query = "select b.cNum, b.title, m.userId, b.writeDate, b.visitNum "
-				+ " from board b, member m "
-				+ " where b.uNum = m.uNum "
-				+ " order by b.cNum desc";
+		String query = "SELECT * "
+					+ "	FROM ( "
+						+ " SELECT ROWNUM AS list, A.* "
+						+ " FROM ( "
+							+ " SELECT b.cNum, b.title, m.userId, b.writeDate, b.visitNum "
+							+ " FROM board b, member m "
+							+ " WHERE b.uNum = m.uNum "
+							+ " ORDER BY cNum DESC "
+						+ " ) A "
+					+ " ) "
+					+ " WHERE list BETWEEN 1 AND 5 ";
 		
 		try {  
 			stmt = conn.createStatement();

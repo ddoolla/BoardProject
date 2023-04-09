@@ -9,13 +9,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>index</title>
-    <link rel="stylesheet" href="/css/mainStyle.css">
-    <link rel="stylesheet" href="/css/commonStyle.css">
+    <link rel="stylesheet" href="../css/mainStyle.css" type="text/css">
+    <link rel="stylesheet" href="../css/commonStyle.css" type="text/css">
 </head>
 <body>
     <div id="page-wrapper"> <!-- 페이지 전체 감싸는 태그 -->
         
-        <jsp:include page="/common/header.jsp"/>
+        <jsp:include page="../common/header.jsp"/>
         
         
         <div id="content"> <!-- 컨텐츠 전체 -->
@@ -86,11 +86,11 @@
                 <div id="board"> <!-- 하단 게시판 -->
                     <table>
                         <c:choose>
-                        	<c:when test="${ empty sessionScope.mainLists }">
+                        	<c:when test="${ empty requestScope.mainLists }">
                         		<tr><td colspan="5">게시물이 없습니다.</td></tr>
                         	</c:when>
                         	<c:otherwise>
-                        		<c:forEach var="mainLists" items="${ sessionScope.mainLists }">
+                        		<c:forEach var="mainLists" items="${ requestScope.mainLists }">
                         			<tr>
                         				<td>${ mainLists.userId }</td>
                     			        <td> | </td>
@@ -109,7 +109,7 @@
             </section>
         </div>
 
-  		<jsp:include page="/common/footer.jsp"/>
+  		<jsp:include page="../common/footer.jsp"/>
   		
       
     </div>
