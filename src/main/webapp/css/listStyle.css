@@ -69,18 +69,24 @@
     height: 40px;
 }
 
+#list-section table tr td  a:hover {
+    color: #999;
+}
+
 #list-section table tr td:nth-child(2) {
     text-align: left;
     padding-left: 10px;
 }
 
-/* 글쓰기 버튼 */
-#list-section #write-btn {
+/* 버튼있는 하단부 */
+#list-section #bottom-btn {
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
 }
-#list-section #write-btn input {
+
+/* 글쓰기 버튼 */
+#list-section #bottom-btn input {
     width: 75px;
     height: 30px;
     font-size: 1em;
@@ -89,6 +95,31 @@
     font-weight: bolder;
 }
 
-#list-section #write-btn input:hover {
+#list-section #bottom-btn input:hover {
     border: 2px solid #999;
 }
+
+/* 페이징 스타일 */
+#list-section #bottom-btn > div:nth-child(2) {
+	font-size: 1.1em;
+}
+
+/* 현재 페이지 버튼색깔 */
+#list-section #bottom-btn > div:nth-child(2) span {
+	color: #ccc;
+}
+
+/* 페이지 버튼 마우스오버 색깔 */
+#list-section #bottom-btn > div:nth-child(2) a:hover {
+	font-weight: bolder;
+}
+
+
+
+
+
+
+
+
+
+

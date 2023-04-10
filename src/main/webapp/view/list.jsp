@@ -24,9 +24,9 @@
             </p>
             <div id="searchBox">
                 <div>
-                    <form action="">
-                        <input type="text" name="">
-                        <input type="button" value="검색">
+                    <form action="./list.do">
+                        <input type="text" name="searchTitle">
+                        <input type="submit" value="검색">
                     </form>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                 		<c:forEach var="lists" items="${ requestScope.lists}">
                 			<tr>
                 				<td>${ lists.cNum }</td>
-                				<td><a href="#">${ lists.title }</a></td>
+                				<td><a href="./selectList.do?cNum=${ lists.cNum }">${ lists.title }</a></td>
                 				<td>${ lists.userId }</td>
                 				<td>${ lists.writeDate }</td>
                 				<td>${ lists.visitNum }</td>
@@ -55,10 +55,12 @@
                 	</c:otherwise>
                 </c:choose>
             </table>
-            <div id="write-btn">
+            <div id="bottom-btn">
                 <div></div>
-                <div>${ requestScope.pagingStr }</a></div>
-                <input type="button" value="글쓰기">
+                <div>${ requestScope.pagingStr }</div> <!-- 페이징 -->
+                <div>
+                	<input type="button" value="글쓰기">
+                </div>
             </div>
         </section>
 

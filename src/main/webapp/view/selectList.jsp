@@ -9,6 +9,7 @@
     <title>selectList</title>
     <link rel="stylesheet" href="../css/commonStyle.css">
     <link rel="stylesheet" href="../css/selectListStyle.css">
+    <script src="../javascript/script.js" type="text/javascript"></script>
 </head>
 <body>
     <div id="page-wrapper">
@@ -18,24 +19,24 @@
         <section id="selectList-section">
             <div>
                 <span>제목:</span>
-                ㅇㄴㅁㄴ이ㅏㅁㄴ
+                ${ BoardDTO.title }
             </div>
             <div>
                 <div>
-                    <span>작성자:</span> ddddddddd
+                    <span>작성자:</span> ${ BoardDTO.userId }
                 </div>
                 <div></div>
                 <div>
-                    <span>작성일:</span> yyyy-MM-dd
+                    <span>작성일:</span> ${ BoardDTO.writeDate }
                 </div>
             </div>
             <div>
-                내용용용ㅇ
+                ${ BoardDTO.content }
             </div>
             <div>
                 <input type="button" value="수정">
                 <input type="button" value="삭제">
-                <input type="button" value="목록">
+                <input type="button" value="목록" onclick="goList();">
             </div>
         </section>
 

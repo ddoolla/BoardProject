@@ -5,7 +5,7 @@ public class Paging {
 	public static String pagingStr(int allContent, int pageNum) {
 		int pageSize = 10;
 		int pageBlock = 5;
-		String url = "./List.do";
+		String url = "./list.do";
 		
 		String pagingStr = "";
 		
@@ -27,7 +27,7 @@ public class Paging {
 		while (cnt <= pageBlock && pageTemp <= totalPages) { //5번 반복, 시작번호가 전체페이지번호보다 클수는 없게
 			
 			if (pageTemp == pageNum) { //현재페이지는 링크를 걸지 않는다.
-				pagingStr += "" + pageTemp;
+				pagingStr += "<span>" + pageTemp + "</span>";
 			} else {
 				pagingStr += "<a href='" + url + "?pageNum=" + pageTemp + "'>" + pageTemp + "</a>";
 			}

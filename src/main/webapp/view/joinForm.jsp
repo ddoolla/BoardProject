@@ -9,6 +9,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="../css/commonStyle.css">
     <link rel="stylesheet" href="../css/joinFormStyle.css">
+    <script src="../javascript/script.js" type="text/javascript"></script>
 </head>
 <body>
     <div id="page-wrapper">
@@ -18,7 +19,7 @@
         <section id="join-section">
             <h1>회원가입</h1>
             
-            <form action="" method="post">
+            <form method="post" name="joinForm">
                 <div id="join-container">
                     <div>
                         <span class="cls1">아이디</span> 
@@ -46,7 +47,7 @@
                     </div>
                 </div>
                 <div class="btn">
-                    <input type="submit" value="가입하기">
+                    <input type="submit" value="가입하기" onClick="return joinCheck();">
                     &nbsp;
                     <input type="button" value="취소">
                 </div>

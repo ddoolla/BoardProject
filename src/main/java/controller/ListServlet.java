@@ -30,9 +30,9 @@ public class ListServlet extends HttpServlet {
 		ServletContext application = this.getServletContext();
 		BoardDAO dao = new BoardDAO(application);
 		Map<String, Object> map = new HashMap<>();
-		//페이징 기능
-		int pageSize = 10;
 		
+		//페이징 시작
+		int pageSize = 10;
 		
 		int pageNum = 1;
 		int allContents = dao.allContents();
@@ -47,7 +47,12 @@ public class ListServlet extends HttpServlet {
 		map.put("end", end);
 		
 		String pagingStr = Paging.pagingStr(allContents, pageNum);
-		req.setAttribute("pagingStr", pagingStr);	
+		req.setAttribute("pagingStr", pagingStr);
+		//페이징 끝
+		
+		//검색
+		String searchTitle = req.getParameter("searchTitle");
+		map.put("searchTitle", searchTitle);
 		
 		List<BoardDTO> lists = dao.selectList(map);
 		//dao.close();

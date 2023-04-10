@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -12,25 +11,49 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.dao.BoardDAO;
 import model.dto.BoardDTO;
-@WebServlet("/view/home.do")
-public class HomeServlet extends HttpServlet {
-	
-	/**
-	 * 
-	 */
+
+@WebServlet("/view/selectList.do")
+public class SelectListServlet extends HttpServlet {
+
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setCharacterEncoding("UTF-8"); 
 		
+		req.setCharacterEncoding("UTF-8");
 		ServletContext application = this.getServletContext();
+		
+		String cNum = req.getParameter("cNum");
+		
 		BoardDAO dao = new BoardDAO(application);
 		
-		List<BoardDTO> lists = dao.selectHome();
-		dao.close();
-		req.setAttribute("homeLists", lists);
+		BoardDTO dto = dao.selectTitle(cNum);
 		
-		req.getRequestDispatcher("/view/home.jsp").forward(req, resp); 
+		req.setAttribute("BoardDTO", dto);
+		
+		req.getRequestDispatcher("/view/selectList.jsp").forward(req, resp);
+		
+		
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

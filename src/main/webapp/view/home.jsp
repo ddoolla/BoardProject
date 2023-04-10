@@ -86,17 +86,17 @@
                 <div id="board"> <!-- 하단 게시판 -->
                     <table>
                         <c:choose>
-                        	<c:when test="${ empty requestScope.mainLists }">
+                        	<c:when test="${ empty requestScope.homeLists }">
                         		<tr><td colspan="5">게시물이 없습니다.</td></tr>
                         	</c:when>
                         	<c:otherwise>
-                        		<c:forEach var="mainLists" items="${ requestScope.mainLists }">
+                        		<c:forEach var="homeLists" items="${ requestScope.homeLists }">
                         			<tr>
-                        				<td>${ mainLists.userId }</td>
+                        				<td>${ homeLists.userId }</td>
                     			        <td> | </td>
-                       			 	    <td><a href="#">${ mainLists.title }</a></td>
+                       			 	    <td><a href="./selectList.do?cNum=${ homeLists.cNum }">${ homeLists.title }</a></td>
                        				    <td> | </td>
-                        			    <td>${ mainLists.writeDate }</td>
+                        			    <td>${ homeLists.writeDate }</td>
                         			</tr>
                         		</c:forEach>
                         	</c:otherwise>
