@@ -9,15 +9,7 @@ public class BoardDTO {
 	private String writeDate;
 	private String visitNum;
 	private String userId;
-	private String allContents;
 	
-	
-	public String getAllContents() {
-		return allContents;
-	}
-	public void setAllContents(String allContents) {
-		this.allContents = allContents;
-	}
 	public String getUserId() {
 		return userId;
 	}

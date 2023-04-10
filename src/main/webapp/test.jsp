@@ -7,6 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	총 게시물 개수 = ${ requestScope.allCont } 
+	<%
+		int x = 10;
+		out.print(x-- + "<br>");
+		out.print(x + "<br>");
+		out.print("----------------" + "<br>");
+		request.setAttribute("x", x);
+	%>
+	${ x-1 }<br>
+	${ x-1 }<br>
+	${ x-1 }<br>
+	${ x-1 }<br>
 </body>
 </html>

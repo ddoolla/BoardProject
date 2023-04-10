@@ -30,11 +30,7 @@ public class TestServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ServletContext application = this.getServletContext();
-		BoardDAO dao = new BoardDAO(application);
-		int num = dao.allContents();
-		request.setAttribute("allCont", num);
-		request.getRequestDispatcher("/test.jsp").forward(request, response);
+		
 	}
 
 

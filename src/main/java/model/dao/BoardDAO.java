@@ -22,7 +22,7 @@ public class BoardDAO extends JDBConnect {
 				+ " FROM member m, board b "
 				+ " WHERE m.uNum = b.uNum "
 				+ " ORDER by b.cNum desc) A "
-				+ " WHERE ROWNUM <= 5 ";
+				+ " WHERE ROWNUM <= 5 "; //생각해보니깐 내가 필요한거만 어렵게 조인할게 아니라 *로 다 불려와서 필요한거만 써도 될 듯? ....
 		
 		try {
 			stmt = conn.createStatement();
@@ -49,9 +49,11 @@ public class BoardDAO extends JDBConnect {
 	}//selectHome()
 	
 	//총 게시물 개수 구하는 메서드
-	public int allContents() {
-		String query = "SELECT COUNT(*) as allContent FROM board";
-		BoardDTO dto = new BoardDTO();
+	public int allContents(Map<String, Object> map) {
+		String query = "SELECT COUNT(*) as allContent FROM board ";
+		if (map.get("searchTitle") != null) { //검색어가 있을 경우 추가 쿼리
+			query += " WHERE title LIKE '%" + map.get("searchTitle").toString() + "%'";
+		}
 		int num = 0;
 		try {
 			stmt = conn.createStatement();
@@ -59,8 +61,7 @@ public class BoardDAO extends JDBConnect {
 			
 			rs.next();
 			
-			dto.setAllContents(rs.getString("allContent"));
-			num = Integer.parseInt(dto.getAllContents());
+			num = Integer.parseInt(rs.getString("allContent"));
 			
 		} catch (Exception e) {
 			System.out.println("allContents() 예외");
