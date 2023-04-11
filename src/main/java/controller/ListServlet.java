@@ -33,7 +33,7 @@ public class ListServlet extends HttpServlet {
 		
 		//검색
 		String searchTitle = req.getParameter("searchTitle");
-		req.setAttribute("searchTitle", searchTitle);
+		req.setAttribute("searchTitle", searchTitle); //검색어 유지시키기
 		map.put("searchTitle", searchTitle);
 		
 		//페이징 시작

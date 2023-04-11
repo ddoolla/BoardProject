@@ -25,7 +25,7 @@
             <div id="searchBox">
                 <div>
                     <form action="./list.do">
-                        <input type="text" name="searchTitle" value="${ requestScope.searchTitle }">
+                        <input type="text" name="searchTitle" value="${ requestScope.searchTitle }"> <!-- 히든 쓰면 검색어 안보이게하면서도 될듯 -->
                         <input type="submit" value="검색">
                     </form>
                 </div>
