@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 	
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +10,7 @@
 <title>loginForm</title>
 <link rel="stylesheet" href="../css/commonStyle.css">
 <link rel="stylesheet" href="../css/loginStyle.css">
+<script src="../javascript/script.js" type="text/javascript"></script>
 </head>
 <body>
 	<div id="page-wrapper">
@@ -16,10 +18,10 @@
 		<jsp:include page="../common/header.jsp" />
 
 		<section id="loginSection">
-			<form action="" method="post">
+			<form action="./loginServlet.do" method="post" name="loginForm">
 				<div id="loginContainer">
 					<h1>Log In</h1>
-
+					
 					<div id="loginBox">
 						<div>
 							<span>ID</span> <input type="text" name="userId"
@@ -36,7 +38,7 @@
 							<a href="./joinForm.jsp">회원가입</a>
 						</div>
 						<div>
-							<input type="submit" value="로그인">
+							<input type="submit" value="로그인" onClick="return loginCheck();">
 						</div>
 					</div>
 				</div>

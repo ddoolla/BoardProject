@@ -8,13 +8,13 @@ import java.sql.Statement;
 
 import javax.servlet.ServletContext;
 
-public class JDBConnect {
+public class DBManager {
 	public Connection conn;
 	public Statement stmt;
 	public PreparedStatement pstmt;
 	public ResultSet rs;
 	
-	public JDBConnect(ServletContext application) {
+	public DBManager(ServletContext application) {
 		try {
 			Class.forName(application.getInitParameter("OracleDriver"));
 			conn = DriverManager.getConnection(

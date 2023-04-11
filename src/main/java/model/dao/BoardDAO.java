@@ -6,10 +6,10 @@ import java.util.Map;
 
 import javax.servlet.ServletContext;
 
-import common.JDBConnect;
+import common.DBManager;
 import model.dto.BoardDTO;
 
-public class BoardDAO extends JDBConnect {
+public class BoardDAO extends DBManager {
 
 	public BoardDAO(ServletContext application) {
 		super(application);
@@ -149,6 +149,7 @@ public class BoardDAO extends JDBConnect {
 			dto.setUserId(rs.getString("userId"));
 			dto.setWriteDate(rs.getString("writeDate"));
 			dto.setContent(rs.getString("content"));
+			dto.setVisitNum(rs.getString("visitNum"));
 			
 		} catch (Exception e) {
 			System.out.println("selectTitle 중 예외발생");
@@ -159,7 +160,21 @@ public class BoardDAO extends JDBConnect {
 				
 	}//selectTitle()
 	
-
+	//상세보기 페이지 클릭시 조회수 1증가 
+	public void updateVisitNum(int visitNum, String cNum) {
+		String query = "Update board SET visitNum = " + ++visitNum
+				+ " WHERE cNum = " + cNum;
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println("updateVisitNum()중 예외");
+			e.printStackTrace();
+		}
+		
+	}//updateVisitNum()
 }
 
 
