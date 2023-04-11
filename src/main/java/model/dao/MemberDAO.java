@@ -35,6 +35,8 @@ public class MemberDAO extends DBManager {
 		
 		return dto;
 		
+		//회원가입 저장
+		
 	}//loginCheck
 	
 }

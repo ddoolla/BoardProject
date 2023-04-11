@@ -33,4 +33,19 @@ public class HomeServlet extends HttpServlet {
 		
 		req.getRequestDispatcher("/view/home.jsp").forward(req, resp); 
 	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8"); 
+		
+		ServletContext application = this.getServletContext();
+		BoardDAO dao = new BoardDAO(application);
+		
+		List<BoardDTO> lists = dao.selectHome();
+		dao.close();
+		req.setAttribute("homeLists", lists);
+		
+		req.getRequestDispatcher("/view/home.jsp").forward(req, resp); 
+	}
+	
 }

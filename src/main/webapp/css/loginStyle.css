@@ -27,9 +27,18 @@
     padding-bottom: 15px;
 }
 
+/* 로그인 실패시 박스  */
+#loginSection #loginContainer .loginX {
+	width: 250px;
+	height: 30px;
+    margin: 0 auto;
+    line-height: 30px;
+    color: red;
+}
+
 #loginSection #loginContainer #loginBox {
     width: 250px;
-    margin: 30px auto;
+    margin: 0 auto;
 }
 
 /* 아이디 입력박스 */

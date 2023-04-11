@@ -46,7 +46,7 @@
                 		<c:forEach var="lists" items="${ requestScope.lists}" varStatus="idx"> <!-- 페이지 요청에 따라 한페이지에 10번씩 반복해서 출력 -->
                 			<tr>
                 				<td>${ requestScope.totalNum - (((requestScope.pageNum - 1) * 10) + idx.index)}</td> <!-- 가상의 번호 사용 -->
-                				<td><a href="./selectList.do?cNum=${ lists.cNum }&visitNum=${ lists.visitNum }">${ lists.title }</a></td>
+                				<td><a href="./selectList.do?cNum=${ lists.cNum }">${ lists.title }</a></td>
                 				<td>${ lists.userId }</td>
                 				<td>${ lists.writeDate }</td>
                 				<td>${ lists.visitNum }</td>
@@ -59,7 +59,14 @@
                 <div></div>
                 <div>${ requestScope.pagingStr }</div> <!-- 페이징 -->
                 <div>
-                	<input type="button" value="글쓰기">
+                	<c:choose>
+                		<c:when test="${ !empty sessionScope.loginOK.userId }">
+                			<input type="button" value="글쓰기">
+                		</c:when>
+                		<c:otherwise>
+                			로그인 후 게시글 작성이 가능합니다.
+                		</c:otherwise>
+                	</c:choose>
                 </div>
             </div>
         </section>

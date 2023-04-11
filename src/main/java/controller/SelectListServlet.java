@@ -25,10 +25,9 @@ public class SelectListServlet extends HttpServlet {
 		BoardDAO dao = new BoardDAO(application);
 		
 		String cNum = req.getParameter("cNum");
-		int visitNum = Integer.parseInt(req.getParameter("visitNum"));
 		
 		//조회수 1증가
-		dao.updateVisitNum(visitNum, cNum);				
+		dao.updateVisitNum(cNum);				
 		
 		//상세 게시물 가져오기
 		BoardDTO dto = dao.selectTitle(cNum);

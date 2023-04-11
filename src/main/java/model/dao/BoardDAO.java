@@ -161,8 +161,8 @@ public class BoardDAO extends DBManager {
 	}//selectTitle()
 	
 	//상세보기 페이지 클릭시 조회수 1증가 
-	public void updateVisitNum(int visitNum, String cNum) {
-		String query = "Update board SET visitNum = " + ++visitNum
+	public void updateVisitNum(String cNum) {
+		String query = "Update board SET visitNum = visitNum + 1" 
 				+ " WHERE cNum = " + cNum;
 		
 		try {

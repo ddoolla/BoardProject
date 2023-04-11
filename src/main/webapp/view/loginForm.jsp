@@ -18,10 +18,14 @@
 		<jsp:include page="../common/header.jsp" />
 
 		<section id="loginSection">
-			<form action="./loginServlet.do" method="post" name="loginForm">
+			<form action="./login.do" method="post" name="loginForm">
 				<div id="loginContainer">
 					<h1>Log In</h1>
-					
+					<div class="loginX">
+						<c:if test="${ !empty requestScope.message }">
+							${ requestScope.message }
+						</c:if>
+					</div>
 					<div id="loginBox">
 						<div>
 							<span>ID</span> <input type="text" name="userId"
@@ -32,7 +36,7 @@
 								placeholder=" 비밀번호">
 						</div>
 						<div>
-							<input type="checkbox" name="chkId" id="chk1"> <label
+							<input type="checkbox" name="chkId" id="chk1" value="ck"> <label
 								for="chk1">아이디 기억하기</label>
 							&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
 							<a href="./joinForm.jsp">회원가입</a>

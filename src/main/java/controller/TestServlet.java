@@ -14,7 +14,7 @@ import model.dao.BoardDAO;
 /**
  * Servlet implementation class TestServlet
  */
-@WebServlet("/TestServlet")
+@WebServlet("/test.do")
 public class TestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -30,6 +30,10 @@ public class TestServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		String str = request.getParameter("testCheck");
+		request.setAttribute("str", str);
+		request.getRequestDispatcher("/test.jsp").forward(request, response);
 		
 	}
 

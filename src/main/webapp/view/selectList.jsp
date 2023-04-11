@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>     
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,8 +36,11 @@
                 ${ BoardDTO.content }
             </div>
             <div>
-                <input type="button" value="수정">
-                <input type="button" value="삭제">
+            	<c:if test="${ !empty sessionScope.loginOK.userId &&                  
+            		(sessionScope.loginOK.userId == requestScope.BoardDTO.userId) }"> <!-- 로그인 하고, 작성자와 아이디 같은경우에만 버튼 보이게 -->
+            		<input type="button" value="수정">
+                	<input type="button" value="삭제">
+            	</c:if>
                 <input type="button" value="목록" onclick="goList();">
             </div>
         </section>

@@ -85,6 +85,16 @@
     margin-top: 10px;
 }
 
+#list-section #bottom-btn div {
+	width: 266px;
+	text-align: center;
+}
+
+/* 글쓰기버튼 오른쪽 정렬 */
+#list-section #bottom-btn > div:nth-child(3) {
+	text-align: right;
+}
+
 /* 글쓰기 버튼 */
 #list-section #bottom-btn input {
     width: 75px;

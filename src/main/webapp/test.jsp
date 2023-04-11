@@ -7,16 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
-		int x = 10;
-		out.print(x-- + "<br>");
-		out.print(x + "<br>");
-		out.print("----------------" + "<br>");
-		request.setAttribute("x", x);
-	%>
-	${ x-1 }<br>
-	${ x-1 }<br>
-	${ x-1 }<br>
-	${ x-1 }<br>
+	<form action="/test.do">
+		<input type="checkbox" name="testCheck" value="Y"> 안녕
+		<input type="submit" value="보내기"/>
+	</form>
+	체크 파라미터 : ${ requestScope.str }
+	
+	포스트방식으로 파라미터가지고 리다이렉트/ 포워드 실험하기
+	
 </body>
 </html>
