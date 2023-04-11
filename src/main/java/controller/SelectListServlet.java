@@ -22,12 +22,17 @@ public class SelectListServlet extends HttpServlet {
 		
 		req.setCharacterEncoding("UTF-8");
 		ServletContext application = this.getServletContext();
-		
-		String cNum = req.getParameter("cNum");
-		
 		BoardDAO dao = new BoardDAO(application);
 		
+		String cNum = req.getParameter("cNum");
+		int visitNum = Integer.parseInt(req.getParameter("visitNum"));
+		
+		//조회수 1증가
+		dao.updateVisitNum(visitNum, cNum);				
+		
+		//상세 게시물 가져오기
 		BoardDTO dto = dao.selectTitle(cNum);
+		dao.close();
 		
 		req.setAttribute("BoardDTO", dto);
 		

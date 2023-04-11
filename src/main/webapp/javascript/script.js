@@ -7,11 +7,12 @@
 	if (document.referrer == 'http://localhost:8090/view/home.do') { //이전 페이지 URL이 홈에서온거면 게시글 목록으로 이동 
 		location.href ="./list.do"
 	} else {
-		history.back(); //게시글에서 상세보기페이지를 클릭했다면 뒤로가기	
+		location.href = document.referrer; //뒤로가기 후 새로고침 : 상세보기에서 목록 누르면 원래 머물고 있던 페이지로 (1페이지가 아니라)
 	}
 	
 }//goList()
 
+//회원가입 유효성 검사
 function joinCheck() {
 		
 		if (document.joinForm.userId.value == "") {
@@ -56,10 +57,27 @@ function joinCheck() {
 			return false;
 		}
 		
+		return true;
 }//joinCheck()
 
 
-
+//로그인 유효성 검사
+function loginCheck() {
+	var userId = document.loginForm.userId;
+	var userPass = document.loginForm.userPass;
+	
+	if (userId.value == "") {
+		alert("아이디를 입력하세요.");
+		userId.focus();
+		return false;
+	}
+	if (userPass.value == "") {
+		alert("비밀번호를 입력하세요.");
+		userPass.focus();
+		return false;
+	}
+	return true;
+}
 
 
 

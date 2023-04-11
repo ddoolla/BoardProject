@@ -27,6 +27,7 @@
                 </div>
                 <div></div>
                 <div>
+                	<span>조회수:</span> ${ BoardDTO.visitNum } <br>
                     <span>작성일:</span> ${ BoardDTO.writeDate }
                 </div>
             </div>
