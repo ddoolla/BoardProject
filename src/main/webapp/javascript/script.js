@@ -33,6 +33,13 @@ function joinCheck() {
 			return false;
 		}
 		
+		if (document.joinForm.userPass.value != document.joinForm.userPass2.value) {
+			alert("비밀번호가 일치하지 않습니다.");
+			document.joinForm.userPass2.value = "";
+			document.joinForm.userPass2.focus();	
+			return false;	
+		}
+		
 		if (document.joinForm.name.value == "") {
 			alert("이름을 입력하세요.");
 			document.joinForm.name.focus();	
@@ -57,6 +64,7 @@ function joinCheck() {
 			return false;
 		}
 		
+		alert("회원가입이 완료되었습니다.");
 		return true;
 }//joinCheck()
 

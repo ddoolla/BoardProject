@@ -19,7 +19,7 @@
         <section id="join-section">
             <h1>회원가입</h1>
             
-            <form method="post" name="joinForm">
+            <form method="post" name="joinForm" action="./join.do">
                 <div id="join-container">
                     <div>
                         <span class="cls1">아이디</span> 

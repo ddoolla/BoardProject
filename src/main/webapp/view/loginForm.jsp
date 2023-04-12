@@ -28,16 +28,16 @@
 					</div>
 					<div id="loginBox">
 						<div>
-							<span>ID</span> <input type="text" name="userId"
-								placeholder=" 아이디" autofocus />
+							<!-- 체크박스 체크시 쿠키 값으로 유저아이디 가져와서 하루 유지 -->
+							<span>ID</span> <input type="text" name="userId" value="${ cookie.userId.value }" placeholder=" 아이디" autofocus />
 						</div>
 						<div>
 							<span>PW</span> <input type="password" name="userPass"
 								placeholder=" 비밀번호">
 						</div>
 						<div>
-							<input type="checkbox" name="chkId" id="chk1" value="ck"> <label
-								for="chk1">아이디 기억하기</label>
+							<input type="checkbox" name="chkId" id="chk1" value="ck" ${ cookie.checked.value }> <!-- 체크박스 체크시 쿠키 값="checked" 하루 유지 -->
+							<label for="chk1">아이디 기억하기</label>
 							&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
 							<a href="./joinForm.jsp">회원가입</a>
 						</div>
