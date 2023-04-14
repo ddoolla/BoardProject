@@ -46,3 +46,9 @@ insert into board values(seq_cont_num.nextval, 1, '테스트 제목7', '테스�
 insert into board values(seq_cont_num.nextval, 1, '테스트 제목8', '테스트 내용8', sysdate, 0);
 insert into board values(seq_cont_num.nextval, 1, '테스트 제목9', '테스트 내용9', sysdate, 0);
 insert into board values(seq_cont_num.nextval, 1, '테스트 제목10', '테스트 내용10', sysdate, 0);
+
+alter table board
+    add (originalFile varchar2(100));
+    
+alter table board
+    add (newNameFile varchar2(100));
