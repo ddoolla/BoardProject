@@ -9,7 +9,21 @@ public class BoardDTO {
 	private String writeDate;
 	private String visitNum;
 	private String userId;
+	private String originalFile;
+	private String newNameFile;
 	
+	public String getOriginalFile() {
+		return originalFile;
+	}
+	public void setOriginalFile(String originalFile) {
+		this.originalFile = originalFile;
+	}
+	public String getNewNameFile() {
+		return newNameFile;
+	}
+	public void setNewNameFile(String newNameFile) {
+		this.newNameFile = newNameFile;
+	}
 	public String getUserId() {
 		return userId;
 	}

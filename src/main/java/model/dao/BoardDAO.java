@@ -135,8 +135,8 @@ public class BoardDAO extends DBManager {
 		BoardDTO dto = new BoardDTO();
 		
 		String query = "SELECT * "
-				+ " from board b, member m "
-				+ " where b.uNum = m.uNum "
+				+ " FROM board b, member m "
+				+ " WHERE b.uNum = m.uNum "
 				+ " AND cNum = " + cNum; 
 
 		try {
@@ -150,6 +150,8 @@ public class BoardDAO extends DBManager {
 			dto.setWriteDate(rs.getString("writeDate"));
 			dto.setContent(rs.getString("content"));
 			dto.setVisitNum(rs.getString("visitNum"));
+			dto.setOriginalFile(rs.getString("originalFile"));
+			dto.setNewNameFile(rs.getString("newNameFile"));
 			
 		} catch (Exception e) {
 			System.out.println("selectTitle 중 예외발생");
@@ -175,6 +177,45 @@ public class BoardDAO extends DBManager {
 		}
 		
 	}//updateVisitNum()
+	
+	//게시물 작성한거 디비저장
+	public int insertWrite(BoardDTO dto) {
+		int num = 0;
+		String query = "INSERT INTO board ";
+		if (dto.getOriginalFile() != null && dto.getNewNameFile() != null) { //파일을 입력 했으면 추가 
+			query += " (cNum, uNum, title, content, originalFile, newNameFile) "
+					+ " VALUES (seq_cont_num.nextval, ?, ?, ?, ?, ?) ";
+		} else { //입력 안했으면 추가
+			query += " (cNum, uNum, title, content) "
+					+ " VALUES (seq_cont_num.nextval, ?, ?, ?) ";
+		}
+	
+		try {
+			pstmt = conn.prepareStatement(query);
+			
+			if (dto.getOriginalFile() != null && dto.getNewNameFile() != null) {
+				pstmt.setString(1, dto.getuNum());
+				pstmt.setString(2, dto.getTitle());
+				pstmt.setString(3, dto.getContent());
+				pstmt.setString(4, dto.getOriginalFile());
+				pstmt.setString(5, dto.getNewNameFile());
+				
+			} else {
+				pstmt.setString(1, dto.getuNum());
+				pstmt.setString(2, dto.getTitle());
+				pstmt.setString(3, dto.getContent());
+			}
+			
+			num = pstmt.executeUpdate(); //insert 성공하면 1저장
+			
+		} catch (Exception e) {
+			System.out.println("insertWrite()중 예외");
+			e.printStackTrace();
+		}
+		
+		return num;
+		
+	}//insertWrite
 }
 
 

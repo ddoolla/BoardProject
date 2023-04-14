@@ -33,6 +33,13 @@ public class SelectListServlet extends HttpServlet {
 		BoardDTO dto = dao.selectTitle(cNum);
 		dao.close();
 		
+		//이미지 있을경우 이미지 넘기기
+		String imageFile = "";
+		if (dto.getNewNameFile() != null) {
+			imageFile += "<img src='../upload/" + dto.getNewNameFile() + "' />";
+			req.setAttribute("imageFile", imageFile);
+		}
+		
 		req.setAttribute("BoardDTO", dto);
 		
 		req.getRequestDispatcher("/view/selectList.jsp").forward(req, resp);

@@ -33,7 +33,8 @@
                 </div>
             </div>
             <div>
-                ${ BoardDTO.content }
+            	${ requestScope.imageFile }
+                ${ requestScope.BoardDTO.content }
             </div>
             <div>
             	<c:if test="${ !empty sessionScope.loginOK.userId &&                  

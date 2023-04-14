@@ -49,7 +49,7 @@
                 <div class="btn">
                     <input type="submit" value="가입하기" onClick="return joinCheck();">
                     &nbsp;
-                    <input type="button" value="취소">
+                    <input type="button" value="취소" onClick="location.href='/view/home.do'">
                 </div>
             </form>
             

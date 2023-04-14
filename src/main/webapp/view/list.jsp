@@ -62,7 +62,7 @@
                 <div>
                 	<c:choose>
                 		<c:when test="${ !empty sessionScope.loginOK.userId }">
-                			<input type="button" value="글쓰기">
+                			<input type="button" value="글쓰기" onClick="location.href='./writeForm.jsp'">
                 		</c:when>
                 		<c:otherwise>
                 			로그인 후 게시글 작성이 가능합니다.

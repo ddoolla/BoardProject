@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="../css/mainStyle.css" type="text/css">
+    <link rel="stylesheet" href="../css/homeStyle.css" type="text/css">
     <link rel="stylesheet" href="../css/commonStyle.css" type="text/css">
 </head>
 <body>
@@ -24,7 +24,7 @@
                 <h2>abcdefasdasg</h2>
 
                 <div id="bigPic"> <!-- 큰 사진 -->
-                    <a href="#"><img src="https://via.placeholder.com/800X500" alt=""></a>
+                    <img src="../upload/camera-ga9294504e_1920.jpg" alt="">
                 </div>
 
                 <div id="smallPic">
@@ -33,7 +33,7 @@
                             <th>title1</th>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="smallPicBox">
                                 <a href="#"><img src="https://via.placeholder.com/250X350" alt=""></a>
                             </td>
                         </tr>
@@ -49,7 +49,7 @@
                             <th>title2</th>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="smallPicBox">
                                 <a href="#"><img src="https://via.placeholder.com/250X350" alt=""></a>
                             </td>
                         </tr>
@@ -65,7 +65,7 @@
                             <th>title3</th>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="smallPicBox">
                                 <a href="#"><img src="https://via.placeholder.com/250X350" alt=""></a>
                             </td>
                         </tr>

@@ -37,6 +37,7 @@ a {
 /*
  * 메인 섹션 영역
  */
+ /* 큰사진 */
 #main-section #bigPic {
     width:  800px;
     height: 500px;
@@ -44,11 +45,37 @@ a {
     
 }
 
+#main-section #bigPic img {
+    width:  800px;
+    height: 500px;
+    object-fit: cover;
+    box-shadow: 5px 5px 4px #333
+}
+
+/* 작은 사진 */
+#main-section #smallPic .smallPicBox {
+	width: 250px;
+    height: 350px;
+    overflow: hidden;
+    box-shadow: 3px 3px 3px #666;
+}
+
 #main-section #smallPic {
     display: flex;
     justify-content: space-between;
     width: 800px;
     margin: 70px auto;
+}
+
+#main-section #smallPic img {
+    width: 250px;
+    height: 350px;
+    object-fit: cover;
+}
+
+#main-section #smallPic img:hover {
+	transform: scale(1.1);
+	transition: transform 0.2s;
 }
 
 #main-section #smallPic table tr th {
@@ -61,6 +88,7 @@ a {
     background-color: whitesmoke;
     padding-top: 3px;
     padding-left: 5px;
+    box-shadow: 3px 3px 3px #666;
     
 }
 

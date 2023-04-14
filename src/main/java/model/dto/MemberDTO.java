@@ -2,18 +2,19 @@ package model.dto;
 
 public class MemberDTO {
 
-		private String nNum;
+		private String uNum;
 		private String userId;
 		private String userPass;
 		private String name;
 		private String phone;
 		private String email;
 		
-		public String getnNum() {
-			return nNum;
+		
+		public String getuNum() {
+			return uNum;
 		}
-		public void setnNum(String nNum) {
-			this.nNum = nNum;
+		public void setuNum(String uNum) {
+			this.uNum = uNum;
 		}
 		public String getUserId() {
 			return userId;

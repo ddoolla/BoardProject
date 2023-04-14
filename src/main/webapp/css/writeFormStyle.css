@@ -1,0 +1,95 @@
+@charset "UTF-8";
+/* 
+ * 섹션 영역
+ */
+#writeForm-section {
+    width: 700px;
+    height: 700px;
+    margin: 100px auto;
+    margin-bottom: 200px;
+}
+
+#writeForm-section h1 {
+    text-align: center;
+    font-size: 2em;
+    margin: 30px 0;
+    padding-left: 70px;
+}
+
+#writeForm-section > div:first-child {
+    width: 650px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+    padding-right: 70px;
+    border: 2px solid #666;
+    border-radius: 50px;
+}
+
+/* 테이블 */
+#writeForm-section table {
+    width: 600px;
+    margin: 0 auto;
+}
+
+#writeForm-section table tr th {
+    width: 80px;
+    font-size: 1.2em;
+}
+
+#writeForm-section table tr:nth-child(3) th {
+    padding-top: 15px;
+    vertical-align: top;
+}
+
+#writeForm-section table tr td input {
+    width: 500px;
+    height: 30px;
+    font-size: 1.2em;
+    padding: 0 5px;
+    border: 2px solid #666;
+    border-radius: 10px;
+    
+}
+
+#writeForm-section table tr td {
+    width: 300px;
+    padding: 3px 0;
+}
+
+/* 내용 */
+#writeForm-section table textarea {
+    width: 500px;
+    padding: 5px;
+    border: 2px solid #666;
+    border-radius: 10px;
+    font-size: 1.4em;
+    font-weight: bolder;
+}
+
+/* 파일 버튼 */
+#writeForm-section table tr:nth-child(4) td input {
+   height: 35px;
+   padding-top: 5px;
+   padding-bottom: 2px;
+}
+
+/* 하단 버튼 */
+#writeForm-section table tr:nth-child(5) td {
+    text-align: center;
+    padding: 15px 0;
+    padding-left: 70px;
+    font-size: 1em;
+
+}
+
+#writeForm-section table tr:nth-child(5) td input {
+    width: 100px;
+    font-weight: bolder;
+    border: 0;
+    border-radius: 10px;
+}
+
+#writeForm-section table tr:nth-child(5) td input:hover {
+    border: 2px solid #999;
+    color: #999;
+}

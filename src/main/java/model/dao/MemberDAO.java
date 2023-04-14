@@ -22,7 +22,8 @@ public class MemberDAO extends DBManager {
 			rs = stmt.executeQuery(query);
 
 			rs.next();
-
+			
+			dto.setuNum(rs.getString("uNum"));
 			dto.setUserId(rs.getString("userId"));
 			dto.setUserPass(rs.getString("userPass"));
 			dto.setName(rs.getString("name"));
