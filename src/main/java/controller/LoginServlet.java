@@ -39,6 +39,7 @@ public class LoginServlet extends HttpServlet {
 
 		
 		MemberDTO dto = dao.loginCheck(userId);
+		
 		//로그인폼에서 포스트 요청을 포워드로 다른 페이지넘겨줬을 때 get요청과 연결되면 오류나는것 같다.? 리다이렉트 써야함.
 		if (userId.equals(dto.getUserId()) && userPass.equals(dto.getUserPass())) {
 			//아이디 기억하기 체크시 쿠키생성

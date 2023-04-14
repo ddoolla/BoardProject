@@ -17,7 +17,8 @@
             <c:choose>
             	<c:when test="${ !empty sessionScope.loginOK.userId }">
             		<span>${ sessionScope.loginOK.name }</span>님 안녕하세요!
-            		| <a href="logout.do">로그아웃</a>
+            		| <a href="logout.do">로그아웃</a> 
+            		| <a href="updateJoinForm.jsp">회원정보</a>
             	</c:when>
             	<c:otherwise>
             		<a href="./loginForm.jsp">로그인</a> 
@@ -39,7 +40,7 @@
                     <li>&nbsp;|&nbsp;</li>
                     <li><a href="#">갤러리</a></li>
                     <li>&nbsp;|&nbsp;</li>
-                    <li><a href="#">마이페이지</a></li>
+                    <li><a href="#">공지사항</a></li>
                 </ul>
             </div>
         </nav>

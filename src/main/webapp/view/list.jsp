@@ -11,6 +11,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="../css/commonStyle.css">
     <link rel="stylesheet" href="../css/listStyle.css">
+    <script src="../javascript/script.js" type="text/javascript"></script>
 </head>
 <body>
     <div id="page-wrapper">
