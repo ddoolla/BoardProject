@@ -53,7 +53,7 @@ public class ListServlet extends HttpServlet {
 		
 		String pagingStr = Paging.pagingStr(allContents, pageNum, searchTitle);
 		req.setAttribute("pagingStr", pagingStr);
-		//페이징 끝
+		//페이징 끝 list.do를 거쳐간 페이지는 페이징 기능이 들어가게
 		
 		//게시물 번호 (전체조회는 상관없는데 검색했을 때 게시물 번호가 순서대로 나오는게 아니라 각자 가지고있는 시퀀스넘버가 나와서 가상의 번호를 사용해야한다.) 
 		req.setAttribute("totalNum", allContents);

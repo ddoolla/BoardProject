@@ -52,3 +52,12 @@ alter table board
     
 alter table board
     add (newNameFile varchar2(100));
+    
+alter table board
+    modify (title varchar2(100));
+    
+alter table board
+    modify (content varchar2(2000));
+    
+    select rownum, a.* from (select * from board where newNameFile is not null order by writedate desc) a
+where rownum <= 3;

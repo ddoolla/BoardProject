@@ -49,7 +49,7 @@ a {
     width:  800px;
     height: 500px;
     object-fit: cover;
-    box-shadow: 5px 5px 4px #333
+    box-shadow: 2px 2px 3px #666;
 }
 
 /* 작은 사진 */

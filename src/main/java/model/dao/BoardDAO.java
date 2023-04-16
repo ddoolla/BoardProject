@@ -1,5 +1,6 @@
 package model.dao;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +15,46 @@ public class BoardDAO extends DBManager {
 	public BoardDAO(ServletContext application) {
 		super(application);
 	}
+	
+	//home.jsp에 작은사진 3장 가져오기
+	public List<BoardDTO> selectSmallPic() {
+		List<BoardDTO> list = new ArrayList<>();
+		String query = "SELECT ROWNUM, sq.* "
+				+ " FROM ( "
+				+ " SELECT b.*, m.userId FROM board b, member m "
+				+ " WHERE b.uNum = m.uNum "
+				+ " AND newNameFile IS NOT NULL "
+				+ " ORDER BY writeDate desc) sq "
+				+ " WHERE ROWNUM <= 3 ";
+		
+				
+				
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(query);
+			
+			while (rs.next()) {
+				BoardDTO dto = new BoardDTO();
+				
+				dto.setcNum(rs.getString("cNum"));
+				dto.setUserId(rs.getString("userId"));
+				dto.setTitle(rs.getString("title"));
+				dto.setWriteDate(rs.getString("writeDate").substring(0, 10));
+				dto.setNewNameFile(rs.getString("newNameFile"));
+				
+				list.add(dto);
+				
+			}
+			
+		} catch (Exception e) {
+			System.out.println("selectSmallPic()중 예외");
+			e.printStackTrace();
+		}
+		
+		return list;
+		
+	}//selectSmallPic
+	
 	//home.jsp에있는 게시판에 상위 게시물 5개 가져오는 메서드
 	public List<BoardDTO> selectHome() {
 		List<BoardDTO> list = new ArrayList<>();
@@ -145,6 +186,7 @@ public class BoardDAO extends DBManager {
 			
 			rs.next();
 			
+			dto.setcNum(rs.getString("cNum"));
 			dto.setTitle(rs.getString("title"));
 			dto.setUserId(rs.getString("userId"));
 			dto.setWriteDate(rs.getString("writeDate"));
@@ -216,6 +258,33 @@ public class BoardDAO extends DBManager {
 		return num;
 		
 	}//insertWrite
+	
+	
+	//게시물 수정 메서드
+	public int updateWrite(BoardDTO dto) {
+		String query = "UPDATE board "
+				+ " SET title = '" + dto.getTitle() + "' "
+				+ " , content = '" + dto.getContent() + "' ";
+		if ((dto.getOriginalFile() != null) && (dto.getNewNameFile() != null)) {
+			query += " , originalFile = '" + dto.getOriginalFile() + "' "
+				+ " , newNameFile = '" + dto.getNewNameFile() + "' ";
+		}
+		query += " WHERE cNum = '" + dto.getcNum() + "'";
+		
+		int num = 0;
+		
+		try {
+			stmt = conn.createStatement();
+			num = stmt.executeUpdate(query); //업데이트 성공시 1저장
+			
+		} catch (Exception e) {
+			System.out.println("updateWrite()중 예외");
+			e.printStackTrace();
+		}
+		
+		return num;
+		
+	}//updateWrite
 }
 
 

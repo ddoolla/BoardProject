@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -24,6 +25,8 @@ public class JoinServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
 		resp.setCharacterEncoding("UTF-8");
+		resp.setContentType("text/html; charset=UTF-8");
+		
 		ServletContext application = this.getServletContext();
 		MemberDAO dao = new MemberDAO(application);
 		MemberDTO dto = new MemberDTO();
@@ -34,7 +37,7 @@ public class JoinServlet extends HttpServlet {
 		dto.setPhone(req.getParameter("phone"));
 		dto.setEmail(req.getParameter("email"));
 		
-		dao.insertJoin(dto);
+		int num = dao.insertJoin(dto); //회원가입 성공하면 1리턴
 		dao.close();
 		
 		//req.getRequestDispatcher("/view/loginForm.jsp").forward(req, resp);
@@ -44,7 +47,27 @@ public class JoinServlet extends HttpServlet {
 		//물론 회원가입은 중복방지하는 로직이 있으면 에러가 발생하겠지만, 예를들어 게시글을 작성한 후 완료버튼을눌러 DB에 추가한 후 다음 페이지를 포워드로 이동시킨 후
 		//새로고침을 누르면 이전 요청이 살아있어 게시물이 중복해서 DB에 추가될 수 있다.
 		
-		resp.sendRedirect("/view/loginForm.jsp");
+		//resp.sendRedirect("/view/loginForm.jsp");
+		
+		PrintWriter out = resp.getWriter();
+		
+		if (num == 1) { //회원가입 성공하면 로그인 화면으로 이동
+			String jsFunc = "<script>"
+					+ " alert('회원가입이 완료되었습니다.'); "
+					+ " location.href='/view/loginForm.jsp'; "
+					+ " </script>";
+			
+			out.print(jsFunc);
+			
+		} else { //회원가입 실패하면 회원가입 페이지로 다시 이동
+			String jsFunc = "<script>"
+					+ " alert('회원가입에 실패했습니다.'); "
+					+ " location.href='/view/joinForm.jsp'; "
+					+ " </script>";
+			
+			out.print(jsFunc);
+		}
+		
 		
 		
 		

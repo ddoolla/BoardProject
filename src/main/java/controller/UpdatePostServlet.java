@@ -13,13 +13,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.catalina.connector.Request;
+
 import com.oreilly.servlet.MultipartRequest;
 
 import model.dao.BoardDAO;
 import model.dto.BoardDTO;
 
-@WebServlet("/view/write.do")
-public class WriteServlet extends HttpServlet {
+@WebServlet("/view/updatePost.do")
+public class UpdatePostServlet extends HttpServlet {
 
 	/**
 	 * 
@@ -31,6 +33,7 @@ public class WriteServlet extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		resp.setCharacterEncoding("UTF-8");
 		resp.setContentType("text/html; charset=UTF-8");
+		
 		ServletContext application = this.getServletContext();
 		BoardDAO dao = new BoardDAO(application);
 		BoardDTO dto = new BoardDTO();
@@ -40,12 +43,12 @@ public class WriteServlet extends HttpServlet {
 		int maxPostSize = 1024 * 1000; //파일 최대 크기 1MB 설정
 		String encoding = "UTF-8"; //인코딩 방식
 		
-		int num = 0; //insert 성공하면 1저장
+		int num = 0; // updateWrite() 성공하면 1저장
 		
 		try {
 			MultipartRequest mr = new MultipartRequest(req, saveDirectory, maxPostSize, encoding);
 			
-			if (mr.getFilesystemName("myFile") != null) { //파일을 저장 했을때 만 
+			if (mr.getFilesystemName("myFile") != null) { //파일을 새로 저장 했을때 (기존 이미지 말고)
 				
 				String fileName = mr.getFilesystemName("myFile"); //현재 파일 이름
 					
@@ -61,49 +64,44 @@ public class WriteServlet extends HttpServlet {
 				dto.setNewNameFile(newFile.getName());
 			}
 			
-			dto.setuNum(mr.getParameter("uNum"));
-			dto.setUserId(mr.getParameter("userId"));
+			dto.setcNum(mr.getParameter("cNum"));
 			dto.setTitle(mr.getParameter("title"));
 			dto.setContent(mr.getParameter("content"));
 			
-			
-			num = dao.insertWrite(dto);
+			num = dao.updateWrite(dto);
 			dao.close();
-
+			
 		} catch (Exception e) {
-			System.out.println("WriteServlet에서 예외발생");
+			System.out.println("updatePostServlet에서 예외발생");
 			e.printStackTrace();
 		}
 		
 		PrintWriter out = resp.getWriter();
 		
-		if (num == 1) { //게시물 저장 성공하면
+		if (num == 1) { //성공하면 상세보기 페이지로 이동 
+			String url = "/view/selectList.do?cNum=" + dto.getcNum();
+			
 			String jsFunc = "<script>"
-					+ " alert('게시글이 등록되었습니다.'); "
-					+ " location.href='/view/list.do'; "
+					+ " alert('게시글이 수정되었습니다.'); "
+					+ " location.href='" + url + "'; "
 					+ " </script>";
 			
 			out.print(jsFunc);
 			
-		} else { //실패하면
+		} else { //실패하면 게시글 수정페이지로
+			String url = "/view/goUpdatePost.do?cNum=" + dto.getcNum();
+			
 			String jsFunc = "<script>"
-					+ " alert('게시글 등록에 실패했습니다.'); "
-					+ " location.href='/view/writeForm.jsp'; "
+					+ " alert('게시글을 다시 수정해주세요.'); "
+					+ " location.href='" + url + "'; "
 					+ " </script>";
 			
 			out.print(jsFunc);
 		}
 		
-		
-		
 	}//doPost
+
 }
-
-
-
-
-
-
 
 
 

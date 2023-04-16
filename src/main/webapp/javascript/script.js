@@ -1,16 +1,6 @@
 /**
  * 
  */
-//게시글 상세보기에서 목록으로 
- function goList() {
-	
-	if (document.referrer == 'http://localhost:8090/view/home.do') { //이전 페이지 URL이 홈에서온거면 게시글 목록으로 이동 
-		location.href ="./list.do"
-	} else {
-		location.href = document.referrer; //뒤로가기 후 새로고침 : 상세보기에서 목록 누르면 원래 머물고 있던 페이지로 (1페이지가 아니라)
-	}
-	
-}//goList()
 
 //회원가입 유효성 검사
 function joinCheck() {
@@ -64,7 +54,6 @@ function joinCheck() {
 			return false;
 		}
 		
-		alert("회원가입이 완료되었습니다.");
 		return true;
 }//joinCheck()
 
@@ -114,7 +103,6 @@ function updatejoinCheck() {
 			return false;
 		}
 		
-		alert("회원정보 변경이 완료되었습니다. 다시 로그인 해주세요.");
 		return true;
 }//joinCheck()
 
@@ -134,6 +122,7 @@ function loginCheck() {
 		userPass.focus();
 		return false;
 	}
+	
 	return true;
 }
 
