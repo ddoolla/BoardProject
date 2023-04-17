@@ -103,7 +103,7 @@
 
 			<section id="sub-section">
 				<div id="subPic">
-					<img src="https://via.placeholder.com/250" alt="">
+					<img src="../images/camera-g5ca820c24_1280.jpg" alt="">
 				</div>
 				<div id="board">
 					<!-- 하단 게시판 -->

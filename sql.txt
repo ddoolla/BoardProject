@@ -13,11 +13,18 @@ create table member (
 create table board (
 	cNum Number(4) primary key,
 	uNum number(4) references member(uNum),
-	title varchar2(50) not null,
-	content varchar2(1000) not null,
+	title varchar2(100) not null,
+	content varchar2(2000) not null,
 	writeDate date default sysdate,
 	visitNum number(4) default 0
 );
+
+파일 이름 추가
+alter table board
+    add (originalFile varchar2(100));
+    
+alter table board
+    add (newNameFile varchar2(100));
 
 * 회원수 시퀀스
 create sequence seq_mem_num 
@@ -47,17 +54,3 @@ insert into board values(seq_cont_num.nextval, 1, '테스트 제목8', '테스�
 insert into board values(seq_cont_num.nextval, 1, '테스트 제목9', '테스트 내용9', sysdate, 0);
 insert into board values(seq_cont_num.nextval, 1, '테스트 제목10', '테스트 내용10', sysdate, 0);
 
-alter table board
-    add (originalFile varchar2(100));
-    
-alter table board
-    add (newNameFile varchar2(100));
-    
-alter table board
-    modify (title varchar2(100));
-    
-alter table board
-    modify (content varchar2(2000));
-    
-    select rownum, a.* from (select * from board where newNameFile is not null order by writedate desc) a
-where rownum <= 3;
