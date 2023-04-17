@@ -24,7 +24,7 @@
 
 			<section id="main-section">
 				<!-- 메인 섹션 영역 -->
-				<h2>abcdefasdasg</h2>
+				<h2>Capture and share your story</h2>
 
 				<div id="bigPic">
 					<!-- 큰 사진 -->

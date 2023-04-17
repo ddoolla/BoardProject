@@ -40,6 +40,10 @@ a {
     position: relative;
     top: 30px;
 }
+#main-header #main-logo img {
+	width: 100%;
+	height: 100%;
+}
 
 #main-header #top-title {
     display: inline;
@@ -101,3 +105,17 @@ a {
     align-items: center;
     border-top: 1px solid #666;
 }
+
+ #main-footer img {
+ 	width: 75px;
+ 	height: 75px;
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

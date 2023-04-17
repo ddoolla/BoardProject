@@ -1,6 +1,5 @@
 package model.dao;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -113,6 +112,30 @@ public class BoardDAO extends DBManager {
 		
 	}//allContents()
 	
+	//겔러리 사진업로드한 총 게시물 불러오는 메서드
+	public int allGalleryContents() {
+		String query = "SELECT COUNT(*) allContents FROM board "
+				+ " WHERE newNameFile IS NOT NULL ";
+		
+		int num = 0; // 게시물 총 개수 저장
+		
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(query);
+			
+			rs.next();
+			
+			num = Integer.parseInt(rs.getString("allContents"));
+			
+		} catch (Exception e) {
+			System.out.println("allGalleryContents()중 예외");
+			e.printStackTrace();
+		}
+		
+		return num;
+		
+	}//allGalleryContents
+	
 	//list.jsp에 게시판 리스트 불러오는 메서드
 	public List<BoardDTO> selectList(Map<String, Object> map) {
 		List<BoardDTO> list = new ArrayList<>();
@@ -203,6 +226,46 @@ public class BoardDAO extends DBManager {
 		return dto;
 				
 	}//selectTitle()
+	
+	//갤러리 정보 불러오는 메서드 
+	public List<BoardDTO> selectGallery(Map<String, Object> map) {
+		List<BoardDTO> list = new ArrayList<>();
+		
+		String query = "SELECT B.* "
+				+ " FROM (SELECT ROWNUM rNum, A.* "
+				+ "     FROM (SELECT b.*, m.userId FROM BOARD b, Member m "
+				+ "     WHERE b.uNum = m.uNum "
+				+ "         AND newNameFile IS NOT NULL "
+				+ "     ORDER BY writeDate DESC) A"
+				+ " ) B "
+				+ " WHERE rNum BETWEEN ? AND ? ";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, map.get("start").toString());
+			pstmt.setString(2, map.get("end").toString());
+			
+			rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				BoardDTO dto = new BoardDTO();
+				
+				dto.setcNum(rs.getString("cNum"));
+				dto.setUserId(rs.getString("userId"));
+				dto.setWriteDate(rs.getString("writeDate").substring(0, 10));
+				dto.setNewNameFile(rs.getString("newNameFile"));
+				
+				list.add(dto);
+			}
+			
+		} catch (Exception e) {
+			System.out.println("selectGallery()중 예외");
+			e.printStackTrace();
+		}
+		
+		return list;
+		
+	}//selectGallery
 	
 	//상세보기 페이지 클릭시 조회수 1증가 
 	public void updateVisitNum(String cNum) {

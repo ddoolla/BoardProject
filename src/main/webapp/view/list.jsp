@@ -19,9 +19,9 @@
         <jsp:include page="../common/header.jsp"/>
 
         <section id="list-section">
-            <h1>asdasfqwe</h1>
+            <h1>Storyboard</h1>
             <p>
-                sdfsdfsdfsdf
+                사진과 이야기를 함께 공유해요!
             </p>
             <div id="searchBox">
                 <div>

@@ -5,11 +5,11 @@
     <header id="main-header"> <!-- 헤더 -->
             
             <div id="main-logo">
-                <a href="./home.do"><img src="https://via.placeholder.com/100" alt=""></a>
+                <a href="./home.do"><img src="../images/logo1.png" alt=""></a>
             </div>
             
             <div id="top-title">
-                <h1>ABCDEFG</h1>
+                <h1>JuiceBoard</h1>
             </div>
             
            
@@ -38,7 +38,7 @@
                     <li>&nbsp;|&nbsp;</li>
                     <li><a href="./list.do">게시글</a></li>
                     <li>&nbsp;|&nbsp;</li>
-                    <li><a href="#">갤러리</a></li>
+                    <li><a href="./gallery.do">갤러리</a></li>
                     <li>&nbsp;|&nbsp;</li>
                     <li><a href="#">공지사항</a></li>
                 </ul>
