@@ -44,7 +44,7 @@
             	<c:if test="${ !empty sessionScope.loginOK.userId &&                  
             		(sessionScope.loginOK.userId == requestScope.BoardDTO.userId) }"> <!-- 로그인 하고, 작성자와 아이디 같은경우에만 버튼 보이게 -->
             		<input type="button" value="수정" onClick="location.href='./goUpdatePost.do?cNum=${requestScope.BoardDTO.cNum}'">
-                	<input type="button" value="삭제">
+                	<input type="button" value="삭제" onClick="deleteCheck();"/>
             	</c:if>
                 <input type="button" value="목록" onclick="location.href='/view/list.do'">
             </div>
@@ -53,5 +53,14 @@
 
         <jsp:include page="../common/footer.jsp"/>
     </div>
+    
+    <script type="text/javascript">
+    	function deleteCheck() {
+    		var checkMsg = confirm("정말 게시글을 삭제하시겠습니까?");
+    		if (checkMsg == true) {
+    			location.href = "/view/deletePost.do?cNum=" + ${requestScope.BoardDTO.cNum};
+    		}
+    	}
+    </script>
 </body>
 </html>

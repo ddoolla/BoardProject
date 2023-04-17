@@ -285,6 +285,27 @@ public class BoardDAO extends DBManager {
 		return num;
 		
 	}//updateWrite
+	
+	//게시글 삭제 메서드
+	public int deletePost(String cNum) {
+		String query = "DELETE FROM board "
+				+ " WHERE cNum = " + cNum;
+		int num = 0; //삭제 성공시 1저장
+		
+		try {
+			stmt = conn.createStatement();
+			num = stmt.executeUpdate(query);
+			
+		} catch (Exception e) {
+			System.out.println("deletePost()중 예외");
+			e.printStackTrace();
+		}
+		
+		return num;
+		
+ 	}//deletePost
+	
+	
 }
 
 
