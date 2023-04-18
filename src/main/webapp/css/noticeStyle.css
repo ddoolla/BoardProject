@@ -1,0 +1,137 @@
+@charset "UTF-8";
+
+/* 게시글 스타일 */
+/* 
+ *  섹션 영역
+ */
+
+#notice-section {
+    width: 800px;
+    margin: 120px auto;
+}
+
+#notice-section h1 {
+	margin-bottom: 10px;
+    padding-left: 10px;
+    font-size: 2.5em;
+    font-family: "Elephant";
+}
+
+#notice-section p {
+    padding-left: 10px;
+    font-size: 1.5em;
+}
+
+/* 검색창 */
+#notice-section #searchBox {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    
+}
+#notice-section #searchBox input {
+    width: 100px;
+    height: 25px;
+    vertical-align: middle;
+    border: 1px solid #999;
+    border-radius: 5px;
+}
+#notice-section #searchBox input:nth-child(2) {
+    width: 50px;
+    height: 30px;
+    font-size: 1em;
+    font-weight: bolder;
+    border: 0;
+    border-radius: 5px;
+}
+#notice-section #searchBox input:nth-child(2):hover {
+    border: 2px solid #999;
+}
+
+/* 게시판 */
+
+#notice-section table {
+    width: 800px;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+#notice-section table tr {
+    height: 40px;
+}
+
+#notice-section table tr:first-child {
+    background-color: #f0f0f0;
+    font-size: 1.1em;
+    border-bottom: 1px solid #666;
+}
+
+#notice-section table tr td {
+    border-bottom: 1px solid #666;
+    height: 40px;
+}
+
+#notice-section table tr td  a:hover {
+    color: #999;
+}
+
+#notice-section table tr td:nth-child(2) {
+    text-align: left;
+    padding-left: 10px;
+}
+
+/* 버튼있는 하단부 */
+#notice-section #bottom-btn {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+#notice-section #bottom-btn div {
+	width: 266px;
+	text-align: center;
+}
+
+/* 글쓰기버튼 오른쪽 정렬 */
+#notice-section #bottom-btn > div:nth-child(3) {
+	text-align: right;
+}
+
+/* 글쓰기 버튼 */
+#notice-section #bottom-btn input {
+    width: 75px;
+    height: 30px;
+    font-size: 1em;
+    border: 0;
+    border-radius: 5px;
+    font-weight: bolder;
+}
+
+#notice-section #bottom-btn input:hover {
+    border: 2px solid #999;
+}
+
+/* 페이징 스타일 */
+#notice-section #bottom-btn > div:nth-child(2) {
+	font-size: 1.1em;
+}
+
+/* 현재 페이지 버튼색깔 */
+#notice-section #bottom-btn > div:nth-child(2) span {
+	color: #ccc;
+}
+
+/* 페이지 버튼 마우스오버 색깔 */
+#notice-section #bottom-btn > div:nth-child(2) a:hover {
+	font-weight: bolder;
+}
+
+
+
+
+
+
+
+
+
+

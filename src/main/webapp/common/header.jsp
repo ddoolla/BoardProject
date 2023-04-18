@@ -40,7 +40,7 @@
                     <li>&nbsp;|&nbsp;</li>
                     <li><a href="./gallery.do">갤러리</a></li>
                     <li>&nbsp;|&nbsp;</li>
-                    <li><a href="#">공지사항</a></li>
+                    <li><a href="./notice.jsp">공지사항</a></li>
                 </ul>
             </div>
         </nav>
