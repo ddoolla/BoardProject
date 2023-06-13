@@ -19,6 +19,7 @@
 
 table {
    margin: 20px 18px;
+   box-shadow: 2px 2px 3px #666;
 }
 
 table tr:nth-child(2) {
